@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const Shchema = mongoose.Schema;
+const Schema = mongoose.Schema;
+
 const ExerciseSchema = new Schema({
   type: {
     type: String,
@@ -31,4 +32,6 @@ const ExerciseSchema = new Schema({
     trim: true,
     required: "Exercise set is required"
   },
-})
+});
+
+module.exports = ExerciseSchema;
