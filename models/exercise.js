@@ -27,7 +27,7 @@ const ExerciseSchema = new Schema({
     trim: true,
     required: "Exercise reps is required"
   },
-  set: {
+  sets: {
     type: Number,
     trim: true,
     required: "Exercise set is required"
