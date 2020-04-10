@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const logger = require("morgan");
-const MONGO
 // define port
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://Fomiller:527996Fomiller@ds233258.mlab.com:33258/heroku_wj77xb0k';
