@@ -2,12 +2,12 @@ const API = {
   async getLastWorkout() {
     let res;
     try {
-      res = await fetch("/api/workouts");
+      res = await fetch("/api/workouts/range");
     } catch (err) {
       console.log(err)
     }
     const json = await res.json();
-
+    console.log("LAST WORKOUT: ",json);
     return json[json.length - 1];
   },
   async addExercise(data) {
