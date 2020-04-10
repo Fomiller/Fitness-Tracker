@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const logger = require("morgan");
 // define port
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://Fomiller:527996Fomiller@ds233258.mlab.com:33258/heroku_wj77xb0k';
 // create express app
 const app = express();
 
@@ -21,6 +20,7 @@ app.use(express.static('public'));
 
 
 // set up mongoose database
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://Fomiller:527996Fomiller@ds233258.mlab.com:33258/heroku_wj77xb0k';
 mongoose.connect(MONGODB_URI);
 
 // require routes
