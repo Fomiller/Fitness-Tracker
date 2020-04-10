@@ -33,10 +33,11 @@ module.exports = function(app){
   app.put('/api/workouts/:id', (req, res) => {
     // create a new exercise using request.body
     const workoutID = req.params.id
-    const exercise = new db.Exercise(req.body);
-    console.log('EXERCISE TO ADD: ',exercise);
+    console.log(workoutID)
+    // const exercise = new db.Exercise(req.body);
+    // console.log('EXERCISE TO ADD: ',exercise);
 
-    db.Exercise.create(exercise)
+    db.Exercise.create(req.body)
       .then(({ _id }) => db.Workout.findOneAndUpdate({ _id: workoutID }, { $push: { exercises: _id }}, { new: true }))
       .then(dbWorkout => {
         res.json(dbWorkout);
@@ -46,7 +47,18 @@ module.exports = function(app){
         res.json(err);
       });
   });
-
+  
+  app.get('/api/workouts/range', (req, res) => {
+    db.Workout.find({})
+    .populate('exercises')
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err)
+      });
+  });
+  
   app.get('/api/workouts/:id', (req, res) => {
     db.Workout.findOne({ _id: req.params.id })
     .then(dbWorkout => {
@@ -57,14 +69,17 @@ module.exports = function(app){
     });
   });
 
-  app.get('/populateworkout', (req, res) => {
-    db.Workout.find({})
-    .populate('exercises')
-    .then(dbWorkout => {
-      res.json(dbWorkout)
-    })
-    .catch(err => {
-      res.json(err);
-    });
-  });
+  // app.get('/populateworkout', (req, res) => {
+  //   db.Workout.find({})
+  //   .populate('exercises')
+  //   .then(dbWorkout => {
+  //     res.json(dbWorkout)
+  //   })
+  //   .catch(err => {
+  //     res.json(err);
+  //   });
+  // });
+
+
+
 };
