@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // set up mongoose database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://Fomiller:527996Fomiller@ds233258.mlab.com:33258/heroku_wj77xb0k', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://Fomiller:527996Fomiller@ds233258.mlab.com:33258/heroku_wj77xb0k', {useNewUrlParser: true, useMongoClient:true});
 
 // require routes
 require('./routes/api-routes.js')(app);
