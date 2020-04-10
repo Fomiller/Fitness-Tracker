@@ -6,6 +6,8 @@
 ## Description
 Fitness tracker allows you to create a workout and add as many exercises to your workout as you want. Fitness Tracker also includes a dashboard where you can view your workout stats.
 
+<img src="./public/images/dashboard.PNG" alt="Fitness Tracker Dashboard"/>
+
 ## Table of Contents
 * [Installation](#Installation)
 * [Usage](#Usage)
@@ -19,6 +21,9 @@ Run npm install when you first open the root directory. Do not run the seed file
 
 ## Usage
 The creates a workout and then adds exercises to the workout. When the user is finished with their workout they can navigate to the Fitness Tracker Dashboard where they can view stats from their workout.
+
+<img src="./public/images/addExercise.PNG" alt="Fitness Tracker add exercise"/>
+
 
 ## License
 MIT
